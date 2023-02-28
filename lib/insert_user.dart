@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class Insertuser extends StatefulWidget {
+  Map<String,dynamic>? map = {};
+  Insertuser({this.map});
 
-  Insertuser(this.map);
-  Map? map;
 
   @override
   State<Insertuser> createState() => _InsertuserState();
@@ -23,8 +23,9 @@ class _InsertuserState extends State<Insertuser> {
   void initState() {
     super.initState();
     // namecontroller.text = widget.map==null?'':widget.map!['id'];
+    print(widget.map);
     namecontroller.text = widget.map==null?'':widget.map!['name'];
-    imagecontroller.text = widget.map==null?'':widget.map!['avtar'];
+    imagecontroller.text = widget.map==null?'':widget.map!['avatar'];
   }
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +53,7 @@ class _InsertuserState extends State<Insertuser> {
             ),
             TextButton(onPressed: () {
               if(formkey.currentState!.validate()){
-                if(widget.map == null){
+                if(widget.map==null){
                   insertuser().then((value) => Navigator.of(context).pop(true));
                 }
                 else{

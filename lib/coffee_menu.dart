@@ -41,8 +41,14 @@ class _Coffee_menuState extends State<Coffee_menu> {
                       color: Color.fromRGBO(0, 112, 74, 0.8)),
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                      return Insertuser(null);
-                    },));
+                      return Insertuser();
+                    },)).then((value) {
+                      if(value==true){
+                        setState(() {
+
+                        });
+                      }
+                    });
                   },),
             ),
           )
@@ -59,7 +65,7 @@ class _Coffee_menuState extends State<Coffee_menu> {
                   onTap: () {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) {
-                        return Insertuser(snapshot.data![index]);
+                        return Insertuser(map: snapshot.data![index],);
                       },
                     )).then((value) {
                       if (value == true) {
