@@ -61,7 +61,10 @@ class _InsertuserState extends State<Insertuser> {
                 }
 
               }
-            }, child: widget.map==null?Text('Submit'):Text('Update'))
+            }, child: widget.map==null?Container(child: Text('Submit'),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),
+            ):Container(child: Text('Update'),
+            decoration: BoxDecoration(borderRadius: BorderRadius.circular(40)),),)
           ],
         ),
       ),
